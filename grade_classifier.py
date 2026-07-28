@@ -62,6 +62,10 @@ def get_pass_status(average_mark):
         pass_status = "Fail"
     return pass_status
 
+def flag(subjects):
+    indexes = []
+    # This function needs to return index
+
 if __name__ == "__main__":
 
     get_student_info()
