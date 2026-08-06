@@ -25,7 +25,7 @@ class Subtraction():
         self.y = y
         self.z = z
         self.a = a
-        self.b = b
+        self.b = b        
         self.ans = x - y - z - a - b
 
     def check_ans(self, answer):
@@ -42,6 +42,21 @@ class Multiplication():
 
     def check_ans(self, answer):
         if answer == self.ans:
+            return True
+        else:
+            return False
+
+class Division():
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+
+    def get_divident(self):    
+        product = self.x * self.y
+        return product
+
+    def check_ans(self, answer):
+        if answer == self.x:
             return True
         else:
             return False
@@ -208,10 +223,22 @@ if __name__ == "__main__":
 
             elif option == 4:
                 print("\n --- Division ---")
-                print("Quite Difficult to program for now!!!")
-                print("Still figuring out the Algorithm")
                 user_input = difficulty()
-                pass
+
+                random_x = random_number(user_input)[0]
+                random_y = random_number(user_input)[1]
+
+                division = Division(random_x, random_y)
+                divident = division.get_divident()
+
+                print(f"{divident} / {random_y}")
+                answer_input = int(input("Answer: "))
+
+                check = division.check_ans(answer_input)
+                if check == True:
+                    print("Correct!!")
+                else:
+                    print("Incorrect!!")
 
             elif option == 5:
                 print("\n --- Challenge ---")
