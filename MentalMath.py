@@ -2,7 +2,7 @@
     So we need to create a mental math program, that generates numbers and lets user enter answers, wont continue if its not correct
 """
 import random
-import time
+from datetime import datetime
 
 class Addition():
     def __init__(self, x: int, y: int, z: int, a: int, b: int):
@@ -92,6 +92,16 @@ def random_number(user_input):
         random_b = random.randint(251, 1000)
 
     return random_x, random_y, random_z, random_a, random_b
+
+def get_time(start_time):
+    end_time = datetime.now()
+    duration = end_time - start_time
+    total_seconds = int(duration.total_seconds())
+
+    minutes = total_seconds // 60
+    seconds = total_seconds % 60
+
+    return f"{minutes:02d}:{seconds:02d}"
 
 def difficulty():
     print("1. Begginer")
@@ -200,6 +210,7 @@ if __name__ == "__main__":
 
             elif option == 3:
                 print("\n --- Multiplication ---")
+                start_time = datetime.now()
                 corrects = 0
                 i = 0
                 user_input = difficulty()
@@ -218,8 +229,9 @@ if __name__ == "__main__":
                     else:
                         print("Incorrect!!")
                     i += 1
-
+                duration = get_time(start_time)
                 print(f"\nYou Got {corrects} out of 10")
+                print(f"Time: {duration}")
 
             elif option == 4:
                 print("\n --- Division ---")
@@ -242,8 +254,6 @@ if __name__ == "__main__":
 
             elif option == 5:
                 print("\n --- Challenge ---")
-                print("Quite Difficult to program for now!!")
-                print("Still figuring out the Algorithm")
                 user_input = difficulty()
                 pass
 
