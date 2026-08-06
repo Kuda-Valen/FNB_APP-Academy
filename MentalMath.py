@@ -26,7 +26,7 @@ class Subtraction():
         self.z = z
         self.a = a
         self.b = b
-        self.ans = x + y + z + a + b
+        self.ans = x - y - z - a - b
 
     def check_ans(self, answer):
         if answer == self.ans:
